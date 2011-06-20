@@ -30,7 +30,7 @@ module Octokit
           if version >= 3 && !force_urlencoded
             request.body = MultiJson.encode(options) unless options.empty?
           else
-            request.body = options unless options.empty?
+            request.body = options.to_query unless options.empty?
           end
         end
       end
